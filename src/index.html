@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>API</title>
+    <link href="https://fonts.googleapis.com/css?family=Righteous|Source+Code+Pro&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css" rel="stylesheet" />
+    <link href="styles.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <h1 class="title"><span class="gradient-text">API</span></h1>
+
+    <div class="settings">
+      <button onclick="setView('code')"><i class="fas fa-code"></i></button>
+      <button onclick="setView('endpoints')"><i class="fas fa-list-alt"></i></button>
+      <button onclick="setView('settings')"><i class="fas fa-tools"></i></button>
+    </div>
+
+    <main>
+      <div id="mock-wrapper">
+        <textarea placeholder="json..." oninput="updateMock(event)">{}</textarea>
+        <div class="message"><span id="json-message">Valid JSON</span></div>
+      </div>
+      <div id="endpoint-wrapper" class="hide">
+        <table>
+          <tr>
+            <td>Available methods:</td>
+            <td>GET, POST, PUT, DELETE</td>
+          </tr>
+          <tr>
+            <td>Endpoints</td>
+            <td>http://localhost:9001/</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>http://localhost:9001/no-data</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>http://localhost:9001/error</td>
+          </tr>
+        </table>
+      </div>
+      <div id="settings-wrapper" class="hide">
+        <table>
+          <tr>
+            <td>Response delay</td>
+            <td><input class="delay-input" type="number" value="2" onchange="setDelay(event)" min="0" max="9" size="1" />s</td>
+          </tr>
+          <tr>
+            <td>Server port</td>
+            <td>
+              <input class="delay-input" type="number" value="9001" onchange="setServerPort(event)" min="3000" max="9999" size="1" />
+            </td>
+          </tr>
+        </table>
+        <button class="restart-button">Restart server</button>
+      </div>
+    </main>
+  </body>
+
+  <script src="./js/api.js"></script>
+  <script src="./js/client.js"></script>
+
+</html>
