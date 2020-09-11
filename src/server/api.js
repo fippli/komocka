@@ -1,17 +1,8 @@
-const fs = require("fs");
-const path = require("path");
 const responseData = require("./middleware/responseData");
 const multer = require("multer");
+const removeFile = require("./middleware/removeFile");
 
 const fileUploadMiddleware = multer({ dest: "uploads/" }).single("file");
-
-const fileUploadResponse = (effect) => (req, res) => {
-  const { file } = req;
-
-  fs.unlinkSync(path.resolve(__dirname, file.path));
-
-  effect(req, res);
-};
 
 const api = (app) => {
   app.get("/", responseData);
@@ -19,7 +10,7 @@ const api = (app) => {
   app.put("/", responseData);
   app.delete("/", responseData);
 
-  app.post("/file", fileUploadMiddleware, fileUploadResponse);
+  app.post("/file", fileUploadMiddleware, removeFile, responseData);
 };
 
 module.exports = api;

@@ -1,7 +1,5 @@
 const { ipcRenderer } = require("electron");
 const messageElement = document.getElementById("json-message");
-const mockElement = document.getElementById("mock-wrapper");
-const endpointElement = document.getElementById("endpoint-wrapper");
 const settingsElement = document.getElementById("settings-wrapper");
 
 const updateMock = (event) => {

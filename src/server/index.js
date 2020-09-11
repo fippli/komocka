@@ -8,7 +8,7 @@ let state = {
   komocka: {},
   delay: 1000,
   status: 200,
-  port: 13131,
+  port: 8080,
 };
 
 const getState = () => ({ ...state });
@@ -22,7 +22,6 @@ api(app);
 // [!] Mutating
 const updateState = (key) => (_, data) => {
   state[key] = data;
-  console.log(state);
 };
 
 let server; // Remember the process running for later
@@ -31,7 +30,7 @@ const restartServer = (app, getState) => (_) => {
   if (server) server.close();
   const { port } = getState();
   server = app.listen(port, () => {
-    console.log(`> Server started on port ${port}`);
+    console.log(`Find your Komocka at http://localhost:${port}`);
   });
 };
 
