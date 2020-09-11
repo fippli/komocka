@@ -1,0 +1,173 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  font-family: "Gloria Hallelujah", sans-serif;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.title {
+  font-family: "Gloria Hallelujah", sans-serif;
+  text-align: center;
+  font-size: 4rem;
+  margin: 1rem 0;
+  -webkit-app-region: drag;
+  -webkit-app-region: drag;
+}
+
+.port-input {
+  border: none;
+  font-family: "Gloria Hallelujah", sans-serif;
+  font-size: 1rem;
+}
+
+main {
+  flex: 1;
+  padding: 1rem 1rem 3rem 1rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+textarea {
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  padding: 1rem;
+  box-sizing: border-box;
+  display: flex;
+  border: none;
+  font-family: "Gloria Hallelujah", monospace;
+  font-size: 1rem;
+  width: 100%;
+  height: 100%;
+  resize: none;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+.message {
+  font-family: "Source code pro", monospace;
+  padding: 1rem;
+  box-sizing: border-box;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  text-align: center;
+}
+
+.delay-input {
+  border: none;
+  background-color: transparent;
+}
+
+table {
+  background-color: #f9f9f9;
+  border-collapse: collapse;
+  width: 100%;
+  font-family: "Source code pro", monospace;
+  font-size: 1rem;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+}
+
+#mock-wrapper {
+  flex: 1;
+  width: 100%;
+}
+
+.highlight {
+  color: #fc5c7d;
+}
+
+.art {
+  width: 240px;
+  -webkit-app-region: drag;
+}
+/* Settings */
+
+.settings {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+  padding: 0 1rem;
+  box-sizing: border-box;
+  justify-content: center;
+  background-color: #ffffff;
+  box-shadow: 1px 1px 0 0 rgba(0, 0, 0, 0.1);
+}
+
+.settings i {
+  color: #e9e9e9;
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.settings i:hover {
+  color: #000;
+}
+
+#settings-wrapper {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background-color: #000;
+  color: #fff;
+  width: calc(100% - 20px);
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.hide {
+  display: none !important;
+}
+
+.show {
+  display: flex !important;
+}
+
+input {
+  background-color: #ffffff33;
+  color: #ffffff;
+  font-family: "Gloria Hallelujah", sans-serif;
+  font-size: 1rem;
+  border: none;
+  margin: 5px 0;
+}
+
+.restart-button {
+  box-sizing: border-box;
+  background-color: #ffffff;
+  box-shadow: 3px 3px 0 0px #f0f0f0;
+  padding: 7px 10px;
+  font-size: 1rem;
+  font-family: "Gloria Hallelujah", sans-serif;
+}
+
+.restart-button:hover {
+  background-color: #00ff00;
+  box-shadow: 3px 3px 0 0px #ffff00;
+  cursor: pointer;
+}
