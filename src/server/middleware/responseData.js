@@ -1,4 +1,4 @@
-const uuid = require("uuid/v1");
+const uuid = require("uuid/v4");
 
 const responseData = (req, res) => {
   const { komocka } = req.state;
