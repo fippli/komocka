@@ -23,7 +23,6 @@ const api = (app) => {
   app.post("/file/save", fileUploadMiddleware, (req, res) => {
     const { komocka } = req.state;
     const { filename, path } = req.file;
-
     res.send({
       date: Date.now(),
       _id: uuid(),
