@@ -1,6 +1,6 @@
 {
-  "name": "test-api",
-  "version": "0.0.1",
+  "name": "komocka",
+  "version": "0.1.0",
   "description": "",
   "main": "./src/main.js",
   "scripts": {
@@ -17,10 +17,10 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "multer": "^1.4.2",
-    "nodemon": "^2.0.4",
-    "uuid": "^3.3.3"
+    "uuid": "^3.4.0"
   },
   "devDependencies": {
+    "nodemon": "^2.0.4",
     "electron": "^5.0.13",
     "electron-builder": "^22.8.1"
   },
@@ -28,13 +28,6 @@
     "appId": "your.id",
     "mac": {
       "category": "public.app-category.developer-tools"
-    },
-    "files": [
-      "./src/index.html",
-      "./src/server.js",
-      "./src/main.js",
-      "./src/styles.css",
-      "./src/js/client.js"
-    ]
+    }
   }
 }

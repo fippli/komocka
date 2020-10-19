@@ -2,10 +2,11 @@ const { ipcMain } = require("electron");
 const express = require("express");
 const middleware = require("./middleware");
 const api = require("./api");
+const defaultMock = require("./mock.js");
 
 // Internal dummy state
 let state = {
-  komocka: {},
+  komocka: defaultMock,
   delay: 1000,
   status: 200,
   port: 8080,
