@@ -1,6 +1,7 @@
 const { ipcRenderer } = require("electron");
 const messageElement = document.getElementById("json-message");
 const settingsElement = document.getElementById("settings-wrapper");
+const fs = require("fs");
 
 const updateMock = (event) => {
   const { value } = event.target;
@@ -42,4 +43,15 @@ const toggleSettings = (event) => {
 
 const restartServer = (event) => {
   ipcRenderer.send("restart");
+};
+
+const allowDrop = (event) => {
+  return event.preventDefault();
+};
+
+const drop = (event) => {
+  event.preventDefault();
+  const [{ path }] = event.dataTransfer.files;
+  const data = fs.readFileSync(path).toString();
+  document.getElementById("editor").value = data;
 };
