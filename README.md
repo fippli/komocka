@@ -1,9 +1,12 @@
 # Minimalistic API mock app
 
-A mock server app for quick json mocks.
+Are you a frontend developer who feels uncomfortable hardcoding all the response data in the beginning of your project? Do you ask yourself: "why not just do it the right way from the beginning?" and shortly after realize that its the backend teams fault? Do you feel slowed down by those API designing nerds that have no sense of style?
+
+If yes, you've come to the right place!
+
+Komocka is the must have developer tool for frontend developers who can't wait for the backend team to implement that basic API. Komocka provides a dead simple way to get server mock data as an http response in just a few seconds.
 
 ## Features
-
 - Incredible art of cow pooping.
 - Edit a json with parsing error message in the textarea.
 - Drag and drop a json file to the ui to replace the current mock with the file contents.
