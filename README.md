@@ -23,3 +23,5 @@ It is also possible to simulate file uploads on the endpoint `http://localhost:<
 
 A feature of storing files to serve later is under development.
 
+## Contribution
+Please let me know if you have feedback or ideas how Komocka can improve. Easiest way is to put an issue. Thanks!
