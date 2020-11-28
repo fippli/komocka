@@ -19,12 +19,12 @@ Komocka is the must have developer tool for frontend developers who can't wait f
 <img src="image.png" alt="" width="300" />
 
 ## API
-The json mock is served on `http://localhost:<por>/endpoint`. Available methods are `GET`, `POST`, `PUT`, `DELETE`.
+The json mock is served on `http://localhost:<port>/<endpoint>` (defaults to `http://localhost:8000`). Available methods are `GET`, `POST`, `PUT`, `DELETE`.
 
 ### File uploads
 It is also possible to simulate file uploads on the endpoint `http://localhost:<port>/file`. Available methods are `POST`.
 
-A feature of storing files to serve later is under development.
+*A feature of storing files to serve later is under development.*
 
 ## Contribution
 Please let me know if you have feedback or ideas how Komocka can improve. Easiest way is to put an issue. Thanks!
