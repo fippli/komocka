@@ -1,0 +1,22 @@
+body {
+  margin: 0;
+  padding: 0;
+  --scribble: "Gloria Hallelujah", sans-serif;
+  --monospace: "Source code pro", monospace;
+  font-family: var(--scribble);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+main {
+  flex: 1;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}

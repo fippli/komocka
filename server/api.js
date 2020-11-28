@@ -13,11 +13,11 @@ const fileUploadMiddleware = multer({
   dest: uploadPath,
 }).single("file");
 
-const api = (app) => {
-  app.get("/", responseData);
-  app.post("/", responseData);
-  app.put("/", responseData);
-  app.delete("/", responseData);
+const api = (app, endpoint) => {
+  app.get(endpoint, responseData);
+  app.post(endpoint, responseData);
+  app.put(endpoint, responseData);
+  app.delete(endpoint, responseData);
 
   app.post("/file", fileUploadMiddleware, removeFile, responseData);
   app.post("/file/save", fileUploadMiddleware, (req, res) => {

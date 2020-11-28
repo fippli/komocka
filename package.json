@@ -1,34 +1,78 @@
 {
   "name": "komocka",
-  "version": "0.1.0",
-  "description": "",
-  "main": "./src/main.js",
+  "version": "0.2.0",
+  "description": "Minimalistic mock API app",
+  "main": "./main.js",
+  "homepage": "./",
   "scripts": {
     "postinstall": "electron-builder install-app-deps",
-    "start": "electron ./src/main.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "electron": "electron .",
     "pack": "electron-builder --dir",
-    "dist": "electron-builder"
+    "predist": "npm install && npm run format && npm run build",
+    "dist": "electron-builder",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "format": "prettier \"**/*.{js,jsx,css,md}\" --write"
   },
   "author": "Filip Johansson",
   "license": "MIT",
   "dependencies": {
+    "@codewell/defer": "0.0.3",
+    "@testing-library/jest-dom": "^5.11.6",
+    "@testing-library/react": "^11.2.2",
+    "@testing-library/user-event": "^12.2.2",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
+    "electron-is-dev": "^1.2.0",
     "express": "^4.17.1",
     "image-to-base64": "^2.1.1",
     "multer": "^1.4.2",
-    "uuid": "^3.4.0"
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "4.0.1",
+    "uuid": "^3.4.0",
+    "web-vitals": "^0.2.4"
   },
   "devDependencies": {
-    "nodemon": "^2.0.4",
     "electron": "^7.2.4",
-    "electron-builder": "^22.8.1"
+    "electron-builder": "^22.8.1",
+    "nodemon": "^2.0.4",
+    "prettier": "^2.2.0",
+    "styled-components": "^5.2.1"
   },
   "build": {
     "appId": "your.id",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*",
+      "server/**/*",
+      "main.js"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    },
     "mac": {
       "category": "public.app-category.developer-tools"
     }
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
