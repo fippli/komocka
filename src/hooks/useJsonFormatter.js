@@ -1,7 +1,7 @@
 const { useEffect } = require("react");
 
 const useJsonFormatter = (state, dispatch) => {
-  const { mock, readyToFormat } = state;
+  const { endpoints, readyToFormat } = state;
 
   useEffect(() => {
     if (readyToFormat) {
@@ -9,13 +9,18 @@ const useJsonFormatter = (state, dispatch) => {
         dispatch({
           type: "FORMAT",
           payload: {
-            mock: JSON.stringify(JSON.parse(mock), null, 2),
+            endpoints: endpoints.map((endpoint) => {
+              return {
+                ...endpoint,
+                mock: JSON.stringify(JSON.parse(endpoint.mock), null, 2),
+              };
+            }),
             readyToFormat: false,
           },
         });
       } catch {}
     }
-  }, [mock, readyToFormat, dispatch]);
+  }, [endpoints, readyToFormat, dispatch]);
 };
 
 export default useJsonFormatter;

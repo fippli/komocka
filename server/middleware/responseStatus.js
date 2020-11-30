@@ -4,9 +4,7 @@ const getRandomStatus = () => {
   return statuses[randInt];
 };
 
-const responseStatus = (req, res, next) => {
-  const { status } = req.state;
-
+const responseStatus = (status) => (req, res, next) => {
   if (status === "random") {
     res.status(getRandomStatus());
   } else {

@@ -19,6 +19,7 @@
   "author": "Filip Johansson",
   "license": "MIT",
   "dependencies": {
+    "@codewell/component-map": "^0.3.0",
     "@codewell/defer": "0.0.3",
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",

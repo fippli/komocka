@@ -11,12 +11,3 @@ body {
 *::after {
   box-sizing: border-box;
 }
-
-main {
-  flex: 1;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-}
