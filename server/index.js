@@ -1,7 +1,7 @@
 const { ipcMain } = require("electron");
 const express = require("express");
 const middleware = require("./middleware");
-const api = require("./api");
+const api = require("./api/index.js");
 
 let state = {
   komocka: {},
@@ -25,7 +25,7 @@ const restartServer = (getState) => (_) => {
   const { port, endpoint } = getState();
   const app = express();
   middleware(app, getState);
-  api(app, endpoint);
+  api(app, getState());
   server = app.listen(port, () => {
     console.log(`Find your Komocka at http://localhost:${port}${endpoint}`);
   });
