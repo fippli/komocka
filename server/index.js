@@ -3,39 +3,21 @@ const express = require("express");
 const middleware = require("./middleware");
 const api = require("./api/index.js");
 
-let state = {
-  komocka: {},
-  delay: 1000,
-  status: 200,
-  port: 8080,
-  endpoint: "/",
-};
-
-const getState = () => ({ ...state });
-
-// [!] Mutating
-const updateState = (key) => (_, data) => {
-  state[key] = data;
-};
-
 let server; // Remember the running process for later
 
-const restartServer = (getState) => (_) => {
+const restartServer = (_, state) => {
   if (server) server.close();
-  const { port, endpoint } = getState();
+  const { port, endpoints } = state;
   const app = express();
-  middleware(app, getState);
-  api(app, getState());
-  server = app.listen(port, () => {
-    console.log(`Find your Komocka at http://localhost:${port}${endpoint}`);
+  middleware(app);
+
+  endpoints.forEach((endpointConfig) => {
+    api(app, { port, ...endpointConfig });
   });
+
+  server = app.listen(port);
 };
 
-ipcMain.on("mock", updateState("komocka"));
-ipcMain.on("delay", updateState("delay"));
-ipcMain.on("status", updateState("status"));
-ipcMain.on("port", updateState("port"));
-ipcMain.on("endpoint", updateState("endpoint"));
-ipcMain.on("restart", restartServer(getState));
+ipcMain.on("restart", restartServer);
 
-module.exports = restartServer(getState);
+module.exports = restartServer;

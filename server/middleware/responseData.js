@@ -1,11 +1,10 @@
 const uuid = require("uuid/v4");
 
-const responseData = (req, res) => {
-  const { komocka } = req.state;
+const responseData = (mock) => (_, res) => {
   res.send({
     date: Date.now(),
     _id: uuid(),
-    ...komocka,
+    ...mock,
   });
 };
 

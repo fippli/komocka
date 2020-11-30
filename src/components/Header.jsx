@@ -10,13 +10,13 @@ const Wrapper = styled.header`
 const Title = styled.h1`
   font-family: var(--scribble);
   text-align: center;
-  font-size: 4rem;
+  font-size: 3.5rem;
   margin: 1rem 0;
   -webkit-app-region: drag;
 `;
 
 const Image = styled.img`
-  width: 240px;
+  width: 200px;
   -webkit-app-region: drag;
 `;
 
