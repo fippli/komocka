@@ -29,8 +29,6 @@ const Wrapper = styled.div`
 `;
 
 const Tab = ({ state, dispatch, endpoint, mappingIndex }) => {
-  console.log(mappingIndex === state.active);
-
   return (
     <Wrapper
       onClick={defer(dispatch, { type: "SET_ACTIVE", payload: mappingIndex })}
