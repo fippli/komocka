@@ -33,7 +33,7 @@ const Main = styled.main`
 `;
 
 const Footer = styled.footer`
-padding: 5px 0;
+  padding: 5px 0;
 `;
 
 const EditorWrapper = styled.div`
@@ -106,17 +106,17 @@ const App = () => {
       <Header />
       <Main>
         <TabMenuWrapper>
-        <TabWrapper>
-          <ComponentMap
-            component={Tab}
-            data={state.endpoints}
-            commonProperties={{
-              state,
-              dispatch,
-            }}
-            keyFunction={(_, index) => `tab-${index}`}
-          />
-        </TabWrapper>
+          <TabWrapper>
+            <ComponentMap
+              component={Tab}
+              data={state.endpoints}
+              commonProperties={{
+                state,
+                dispatch,
+              }}
+              keyFunction={(_, index) => `tab-${index}`}
+            />
+          </TabWrapper>
           <Add onClick={defer(dispatch, { type: "ADD_TAB" })}>+</Add>
         </TabMenuWrapper>
 
