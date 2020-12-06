@@ -11,10 +11,6 @@ export const drop = (dispatch) => (event) => {
   dispatch({ type: "SET_MOCK", payload: data });
 };
 
-/**
- * NEW
- */
-
 export const eventAction = (dispatch, type) => (event) =>
   dispatch({ type, payload: event.target.value });
 
