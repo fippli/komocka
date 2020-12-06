@@ -1,7 +1,7 @@
-const { app, BrowserWindow } = require("electron");
-require("./server/index.js");
+const { app, BrowserWindow, dialog } = require("electron");
 const path = require("path");
 const isDev = require("electron-is-dev");
+require("./server/index.js");
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -62,3 +62,21 @@ app.on("activate", () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
+
+const errorMap = {
+  EADDRINUSE: {
+    message:
+      "The port you are trying to use is already used by some other crappy service.\n\nIt's possible to edit the port furthest down in this UI. \n\nYours sincerely!\nThe Cow",
+  },
+};
+
+const errorHandler = (error) => {
+  dialog.showMessageBox({
+    type: "error",
+    title: "Shit hit the fan!",
+    buttonLabel: "Oh shit!",
+    ...errorMap[error.code],
+  });
+};
+
+process.on("uncaughtException", errorHandler);

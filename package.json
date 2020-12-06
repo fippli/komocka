@@ -8,7 +8,7 @@
     "postinstall": "electron-builder install-app-deps",
     "electron": "electron .",
     "pack": "electron-builder --dir",
-    "predist": "npm install && npm run format && npm run build",
+    "predist": "npm run build",
     "dist": "electron-builder",
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -23,7 +23,7 @@
     "@codewell/defer": "0.0.3",
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
-    "@testing-library/user-event": "^12.2.2",
+    "@testing-library/user-event": "^12.5.0",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "electron-is-dev": "^1.2.0",
@@ -37,19 +37,20 @@
     "web-vitals": "^0.2.4"
   },
   "devDependencies": {
-    "electron": "^7.2.4",
+    "electron": "^11.0.3",
     "electron-builder": "^22.8.1",
     "nodemon": "^2.0.4",
     "prettier": "^2.2.0",
     "styled-components": "^5.2.1"
   },
   "build": {
-    "appId": "your.id",
+    "appId": "com.electron.komocka",
     "files": [
       "build/**/*",
       "node_modules/**/*",
       "server/**/*",
-      "main.js"
+      "main.js",
+      "uploads"
     ],
     "directories": {
       "buildResources": "assets"
