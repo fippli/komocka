@@ -17,9 +17,8 @@ const restartServer = (_, state) => {
     });
 
     server = app.listen(port);
-  } catch {
-    // Completely ignore these errors for now!
-    console.log("hello");
+  } catch (error) {
+    console.error(error);
   }
 };
 

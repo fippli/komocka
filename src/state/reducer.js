@@ -1,6 +1,6 @@
-import { getParserMessage, updateEndpointField } from "../core";
+import { getParserMessage, newEndpoint, updateEndpointField } from "../core";
 
-const reducer = (state, action) => {
+const actionSwitch = (state, action) => {
   switch (action.type) {
     case "SET_DELAY": {
       return updateEndpointField(state, action, "delay");
@@ -25,7 +25,10 @@ const reducer = (state, action) => {
           if (index === state.active) {
             return {
               ...endpoint,
-              mock: action.payload,
+              mock: {
+                ...endpoint.mock,
+                [endpoint.method]: action.payload,
+              },
               message: getParserMessage(action.payload),
             };
           }
@@ -35,6 +38,14 @@ const reducer = (state, action) => {
     }
     case "SET_MESSAGE": {
       return updateEndpointField(state, action, "message");
+    }
+
+    case "SET_METHOD": {
+      return updateEndpointField(state, action, "method");
+    }
+
+    case "SET_TYPE": {
+      return updateEndpointField(state, action, "type");
     }
     case "SET_READY_TO_FORMAT": {
       return { ...state, readyToFormat: action.payload };
@@ -53,16 +64,29 @@ const reducer = (state, action) => {
     case "ADD_TAB": {
       return {
         ...state,
+        active: state.endpoints.length,
         endpoints: [
           ...state.endpoints,
-          { delay: 0, message: "", status: 200, mock: "{}", endpoint: "" },
+          newEndpoint({ endpoint: "", type: "json" }),
         ],
+      };
+    }
+    case "SET_DATABASE": {
+      return {
+        ...state,
+        database: action.payload,
       };
     }
     default: {
       return state;
     }
   }
+};
+
+const reducer = (state, action) => {
+  const nextState = actionSwitch(state, action);
+  console.log(nextState);
+  return nextState;
 };
 
 export default reducer;

@@ -14,6 +14,7 @@ function createWindow() {
     height: 700,
     webPreferences: {
       nodeIntegration: true,
+      contextIsolation: false,
     },
     titleBarStyle: "hidden",
   });
@@ -22,7 +23,7 @@ function createWindow() {
   // win.loadFile('index.html')
   win.loadURL(
     isDev
-      ? "http://localhost:3000"
+      ? "http://localhost:4000"
       : `file://${path.join(__dirname, "../build/index.html")}`
   );
 

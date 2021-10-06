@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const DragArea = styled.div`
-  height: 22px;
+  height: 26px;
   width: 100%;
   position: fixed;
   left: 0;

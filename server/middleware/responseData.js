@@ -1,7 +1,7 @@
-const uuid = require("uuid/v4");
+const uuid = require("uuid").v4;
 
-const responseData = (mock) => (_, res) => {
-  res.send({
+const responseData = ({ mock, status }) => (_, res) => {
+  return res.status(status).send({
     date: Date.now(),
     _id: uuid(),
     ...mock,
