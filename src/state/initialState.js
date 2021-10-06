@@ -1,15 +1,14 @@
+import { newEndpoint } from "../core";
+
 const initialState = {
-  port: 8000,
+  port: 8080,
   active: 0,
   endpoints: [
-    {
-      delay: 0,
-      status: 200,
-      endpoint: "",
-      mock: "{}",
-      message: "",
-    },
+    newEndpoint({ endpoint: "/resources", type: "database" }),
+    newEndpoint({ endpoint: "/labels", type: "json" }),
+    newEndpoint({ endpoint: "/files", type: "file" }),
   ],
+  database: {},
 };
 
 export default initialState;

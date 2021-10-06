@@ -1,3 +1,4 @@
+import isDefined from "@codewell/is-defined";
 const fs = window.require("fs");
 
 export const allowDrop = (event) => {
@@ -41,7 +42,12 @@ export const parseMocks = (state) => ({
     try {
       return {
         ...endpoint,
-        mock: JSON.parse(endpoint.mock),
+        mock: Object.keys(endpoint.mock).reduce((acc, key) => {
+          return {
+            ...acc,
+            [key]: JSON.parse(endpoint.mock[key]),
+          };
+        }, {}),
       };
     } catch {
       return {
@@ -51,3 +57,25 @@ export const parseMocks = (state) => ({
     }
   }),
 });
+
+export const newEndpoint = ({ endpoint = "", type = "json" }) => ({
+  method: "get",
+  type,
+  delay: 0,
+  status: 200,
+  endpoint,
+  mock: {
+    get: "{}",
+    put: "{}",
+    post: "{}",
+    delete: "{}",
+  },
+  message: "",
+});
+
+export const formatJson = (json) => {
+  if (isDefined(json)) {
+    return JSON.stringify(JSON.parse(json), null, 2);
+  }
+  return "";
+};
