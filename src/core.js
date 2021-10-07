@@ -1,5 +1,8 @@
 import isDefined from "@codewell/is-defined";
-const fs = window.require("fs");
+const { ipcRenderer } = window.require("electron");
+// const fs = require("fs");
+
+// console.log(fs, window, require);
 
 export const allowDrop = (event) => {
   return event.preventDefault();
@@ -8,8 +11,10 @@ export const allowDrop = (event) => {
 export const drop = (dispatch) => (event) => {
   event.preventDefault();
   const [{ path }] = event.dataTransfer.files;
-  const data = fs.readFileSync(path).toString();
-  dispatch({ type: "SET_MOCK", payload: data });
+  console.log(path);
+  // const data = fs.readFileSync(path).toString();
+  const fileContents = ipcRenderer.sendSync("readfile", path);
+  dispatch({ type: "SET_MOCK", payload: fileContents });
 };
 
 export const eventAction = (dispatch, type) => (event) =>

@@ -2,7 +2,9 @@
   "name": "komocka",
   "version": "0.4.0",
   "description": "Minimalistic mock API app",
-  "main": "./main.js",
+  "author": "Filip Johansson",
+  "license": "MIT",
+  "main": "main.js",
   "homepage": "./",
   "scripts": {
     "postinstall": "electron-builder install-app-deps",
@@ -16,8 +18,6 @@
     "eject": "react-scripts eject",
     "format": "prettier \"**/*.{js,jsx,css,md}\" --write"
   },
-  "author": "Filip Johansson",
-  "license": "MIT",
   "build": {
     "appId": "com.electron.komocka",
     "files": [
@@ -76,10 +76,10 @@
     "web-vitals": "^2.1.0"
   },
   "devDependencies": {
-    "electron": "^15.0.0",
-    "electron-builder": "^22.11.7",
+    "electron": "^15.1.1",
+    "electron-builder": "^22.10.5",
     "nodemon": "^2.0.13",
     "prettier": "^2.4.1",
-    "styled-components": "^5.3.1"
+    "styled-components": "^5.2.1"
   }
 }
