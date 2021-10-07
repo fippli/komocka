@@ -1,7 +1,7 @@
 import { parseMocks } from "../core";
+import { useEffect } from "react";
 
 const { ipcRenderer } = window.require("electron");
-const { useEffect } = require("react");
 
 const useBackendUpdate = (state) => {
   useEffect(() => {
