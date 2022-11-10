@@ -76,7 +76,7 @@
     "web-vitals": "^2.1.0"
   },
   "devDependencies": {
-    "electron": "^15.3.5",
+    "electron": "^18.3.7",
     "electron-builder": "^22.10.5",
     "nodemon": "^2.0.13",
     "prettier": "^2.4.1",
